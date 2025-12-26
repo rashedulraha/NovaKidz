@@ -19,7 +19,7 @@ export default function ProductCard({ product, loading }) {
   }
 
   return (
-    <div className="card w-72 bg-base-100 shadow-lg hover:shadow-xl transition">
+    <div className="card w-full bg-base-100 shadow-lg hover:shadow-xl transition">
       <figure className="bg-base-200">
         <Image
           src={product.image}
