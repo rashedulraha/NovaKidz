@@ -1,9 +1,11 @@
 "use client";
 
+import { postUser } from "@/app/aciton/server/auth";
 import Link from "next/link";
 
 const RegisterForm = () => {
-  const handleRegisterUser = (e) => {
+  // Register user
+  const handleRegisterUser = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
@@ -13,7 +15,7 @@ const RegisterForm = () => {
       email,
       password,
     };
-    console.log("User Information :", UserRegisterInfo);
+    const result = await postUser(UserRegisterInfo);
   };
   return (
     <div>
