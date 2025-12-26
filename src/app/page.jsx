@@ -1,5 +1,5 @@
 import Banner from "@/components/Home/Banner";
-import Products from "@/components/Home/Products";
+import { ProductData } from "@/components/Home/Products";
 import Image from "next/image";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
         <Banner />
       </section>
       <section>
-        <Products />
+        <ProductData />
       </section>
     </div>
   );

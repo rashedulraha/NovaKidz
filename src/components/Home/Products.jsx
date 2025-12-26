@@ -2,9 +2,7 @@ import React from "react";
 
 import products from "@/data/toys.json";
 import ProductCard from "../Cards/ProductsCard";
-const Products = () => {
-  console.log(products);
-
+export const ProductData = () => {
   return (
     <div>
       <h1 className="font-bold text-2xl text-center mb-10">Our products</h1>
@@ -17,5 +15,3 @@ const Products = () => {
     </div>
   );
 };
-
-export default Products;
