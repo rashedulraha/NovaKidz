@@ -2,6 +2,11 @@
 
 import Image from "next/image";
 
+export const metadata = {
+  title: "Products-details",
+  description: "products details here ",
+};
+
 export default function ProductDetails({ product }) {
   const productsDetails = product[0];
   const {
