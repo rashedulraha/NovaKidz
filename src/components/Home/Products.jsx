@@ -1,19 +1,21 @@
-import { getProducts } from "@/app/aciton/server/products";
 import React from "react";
-import ProductCard from "../Cards/ProductsCard";
+// import products from "@/data/toys.json";
+import ProductCard from "../carrds/ProductCard";
+import { getProducts } from "@/actions/server/product";
 
-export const ProductData = async () => {
-  const getProduct = await getProducts();
-
+const Products = async () => {
+  const products = await getProducts();
   return (
     <div>
-      <h1 className="font-bold text-2xl text-center mb-10">Our products</h1>
+      <h2 className="text-center text-4xl font-bold mb-10">Our Products</h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {getProduct.map((product) => (
-          <ProductCard product={product} key={product.title} />
+      <div className="grid md:grid-cols-3 gap-5">
+        {products.map((product) => (
+          <ProductCard key={product.title} product={product}></ProductCard>
         ))}
       </div>
     </div>
   );
 };
+
+export default Products;

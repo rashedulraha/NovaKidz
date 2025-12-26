@@ -1,15 +1,22 @@
-import Banner from "@/components/Home/Banner";
-import { ProductData } from "@/components/Home/Products";
+import Banner from "@/components/home/Banner";
+import Products from "@/components/home/Products";
+import Test from "@/components/Test";
+import { authOptions } from "@/lib/authOptions";
+import { getServerSession } from "next-auth";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions);
   return (
-    <div className="">
+    <div className="space-y-20">
+      <Test></Test>
+      <p>{JSON.stringify(session)}</p>
       <section>
-        <Banner />
+        <Banner></Banner>
       </section>
+
       <section>
-        <ProductData />
+        <Products></Products>
       </section>
     </div>
   );

@@ -1,11 +1,13 @@
-import Logo from "@/components/layout/logo";
+import Logo from "@/components/layouts/Logo";
 import React from "react";
 
 const loading = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center gap-5 flex-col">
-      <h1 className="text-2xl font-bold ">Loading....</h1>
-      <Logo></Logo>
+    <div className="flex flex-col min-h-screen justify-center items-center gap-5">
+      <h2 className="text-5xl font-bold animate-pulse">Loading</h2>
+      <div className="animate-ping">
+        <Logo></Logo>
+      </div>
     </div>
   );
 };
