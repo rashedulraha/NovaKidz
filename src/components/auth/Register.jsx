@@ -2,8 +2,11 @@
 
 import { postUser } from "@/app/aciton/server/auth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const RegisterForm = () => {
+  // navigate user
+  const router = useRouter();
   // Register user
   const handleRegisterUser = async (e) => {
     e.preventDefault();
@@ -16,6 +19,10 @@ const RegisterForm = () => {
       password,
     };
     const result = await postUser(UserRegisterInfo);
+    if (result.acknowledged) {
+      alert("Register successfully , please login");
+      router.push("/login");
+    }
   };
   return (
     <div>

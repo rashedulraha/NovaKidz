@@ -1,15 +1,30 @@
 "use client";
 
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 import React from "react";
 
 const LoginForm = () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    console.log(e.target);
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    const userInfo = {
+      email,
+      password,
+    };
+
+    const result = await signIn("credentials", userInfo);
+  };
   return (
     <div>
-      <form className="space-y-4">
+      <form className="space-y-4" onSubmit={handleLogin}>
         <div>
           <label className="block mb-1 text-sm font-medium">Email</label>
           <input
+            name="email"
             type="email"
             className="w-full border rounded px-3 py-2 focus:outline-none focus:ring"
             placeholder="Enter your email"
@@ -19,6 +34,7 @@ const LoginForm = () => {
         <div>
           <label className="block mb-1 text-sm font-medium">Password</label>
           <input
+            name="password"
             type="password"
             className="w-full border rounded px-3 py-2 focus:outline-none focus:ring"
             placeholder="Enter your password"
