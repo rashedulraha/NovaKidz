@@ -4,7 +4,7 @@ const dbName = process.env.DB_NAME;
 
 // DEFIANT DB COLLECTION NAME HERE
 
-const collection = {
+export const collection = {
   products: "products",
 };
 

@@ -1,7 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { AiFillStar } from "react-icons/ai";
+import { BsEye } from "react-icons/bs";
+
 import { FiShoppingCart } from "react-icons/fi";
 
 export default function ProductCard({ product, loading }) {
@@ -18,7 +21,7 @@ export default function ProductCard({ product, loading }) {
   //   );
   // }
 
-  const { image, title, ratings, price, sold } = product || {};
+  const { image, title, ratings, price, sold, _id } = product || {};
   return (
     <div className="card w-full bg-base-100 shadow-lg hover:shadow-xl transition">
       <figure className="bg-base-200">
@@ -46,11 +49,18 @@ export default function ProductCard({ product, loading }) {
           <span className="text-lg">৳{price}</span>
           <span className="text-sm text-gray-500">Sold: {sold}</span>
         </div>
-
-        <button className="btn btn-primary btn-sm mt-2 flex items-center gap-2">
-          <FiShoppingCart />
-          Add to Cart
-        </button>
+        <div className="flex items-center gap-5">
+          <button className="btn btn-primary btn-sm mt-2 flex items-center gap-2 flex-1">
+            <FiShoppingCart />
+            Add to Cart
+          </button>
+          <Link href={`products/:${_id}`}>
+            <button className="btn btn-secondary btn-sm mt-2 flex items-center gap-2 ">
+              <BsEye />
+              View more
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
