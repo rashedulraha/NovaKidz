@@ -54,7 +54,7 @@ export default function ProductCard({ product, loading }) {
             <FiShoppingCart />
             Add to Cart
           </button>
-          <Link href={`products/:${_id}`}>
+          <Link href={`products/${_id}`}>
             <button className="btn btn-secondary btn-sm mt-2 flex items-center gap-2 ">
               <BsEye />
               View more

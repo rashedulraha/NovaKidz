@@ -1,9 +1,16 @@
+import { getProductsDetails } from "@/app/aciton/server/products";
+import ProductDetails from "@/components/ProductDetails/ProductDetails";
+
 import React from "react";
 
-const ProductsDetails = () => {
+const ProductsDetails = async ({ params }) => {
+  const { id } = await params;
+  const productDetails = await getProductsDetails(id);
+  console.log(productDetails);
+
   return (
     <div>
-      <h1>Products details page</h1>
+      <ProductDetails product={productDetails} />
     </div>
   );
 };
